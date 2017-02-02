@@ -119,7 +119,7 @@ CREATE TABLE scores (
     machine_id INTEGER UNSIGNED NOT NULL,
     game_id INTEGER UNSIGNED NOT NULL,
     score BIGINT UNSIGNED NOT NULL,
-    flags TINYINT UNSIGNED NOT NULL,
+    flags SMALLINT UNSIGNED NOT NULL,
     tiebreaker TINYINT UNSIGNED NOT NULL,
     CONSTRAINT scores_player_id_fkey FOREIGN KEY (player_id) REFERENCES fspa.players (player_id),
     CONSTRAINT scores_machine_id_fkey FOREIGN KEY (machine_id) REFERENCES fspa.machines (machine_id),
