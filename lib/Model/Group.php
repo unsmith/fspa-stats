@@ -28,8 +28,7 @@ class Group extends Base {
 
     public function fetchByID($groupID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.group WHERE group_id = :group_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.group WHERE group_id = :group_id");
         $sth->execute([ ':group_id' => $groupID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -42,8 +41,7 @@ class Group extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.groups");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.groups");
         $sth->execute();
 
         $groups = [];

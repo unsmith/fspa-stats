@@ -23,8 +23,7 @@ class Location extends Base {
 
     public function fetchByID($locationID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.locations WHERE location_id = :location_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.locations WHERE location_id = :location_id");
         $sth->execute([ ':location_id' => $locationID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -37,8 +36,7 @@ class Location extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.locations");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.locations");
         $sth->execute();
 
         $locations = [];

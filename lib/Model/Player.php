@@ -23,8 +23,7 @@ class Player extends Base {
 
     public function fetchByID($playerID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.players WHERE player_id = :player_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.players WHERE player_id = :player_id");
         $sth->execute([ ':player_id' => $playerID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -37,8 +36,7 @@ class Player extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.players");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.players");
         $sth->execute();
 
         $players = [];

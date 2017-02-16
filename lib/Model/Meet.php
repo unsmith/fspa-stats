@@ -28,8 +28,7 @@ class Meet extends Base {
 
     public function fetchByID($meetID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.meets WHERE meet_id = :meet_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.meets WHERE meet_id = :meet_id");
         $sth->execute([ ':meet_id' => $meetID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -42,8 +41,7 @@ class Meet extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.meets");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.meets");
         $sth->execute();
 
         $meets = [];

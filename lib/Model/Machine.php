@@ -27,8 +27,7 @@ class Machine extends Base {
 
     public function fetchByID($machineID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.machines WHERE machine_id = :machine_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.machines WHERE machine_id = :machine_id");
         $sth->execute([ ':machine_id' => $machineID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -41,8 +40,7 @@ class Machine extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.machines");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.machines");
         $sth->execute();
 
         $machines = [];

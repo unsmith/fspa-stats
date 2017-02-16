@@ -37,8 +37,7 @@ class Score extends Base {
 
     public function fetchByID($scoreID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.scores WHERE score_id = :score_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.scores WHERE score_id = :score_id");
         $sth->execute([ ':score_id' => $scoreID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -51,8 +50,7 @@ class Score extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.scores");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.scores");
         $sth->execute();
 
         $scores = [];

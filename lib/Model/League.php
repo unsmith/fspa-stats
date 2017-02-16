@@ -27,8 +27,7 @@ class League extends Base {
 
     public function fetchByID($leagueID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.leagues WHERE league_id = :league_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.leagues WHERE league_id = :league_id");
         $sth->execute([ ':league_id' => $leagueID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -41,8 +40,7 @@ class League extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.leagues");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.leagues");
         $sth->execute();
 
         $leagues = [];

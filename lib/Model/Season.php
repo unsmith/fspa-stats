@@ -28,8 +28,7 @@ class Season extends Base {
 
     public function fetchByID($seasonID) {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.seasons WHERE season_id = :season_id");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.seasons WHERE season_id = :season_id");
         $sth->execute([ ':season_id' => $seasonID ]);
         $row = $sth->fetch();
         if ($row === false) {
@@ -42,8 +41,7 @@ class Season extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $dbh = $dbo->dbh;
-        $sth = $dbh->prepare("SELECT * FROM fspa.seasons");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.seasons");
         $sth->execute();
 
         $seasons = [];
