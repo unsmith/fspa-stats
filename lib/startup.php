@@ -18,4 +18,7 @@ require_once('Model/Group.php');
 require_once('Model/Game.php');
 require_once('Model/Score.php');
 
+# Data modules
+require_once('Stats.php');
+
 ?>

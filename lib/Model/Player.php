@@ -8,6 +8,10 @@ class Player extends Base {
     public function __construct() {
     }
 
+    public function getID() {
+        return $this->player_id;
+    }
+
     public function getName() {
         return $this->name;
     }
@@ -36,7 +40,7 @@ class Player extends Base {
 
     public function fetchAll() {
         $dbo = new \FSPA\DB();
-        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.players");
+        $sth = $dbo->dbh->prepare("SELECT * FROM fspa.players ORDER BY name");
         $sth->execute();
 
         $players = [];

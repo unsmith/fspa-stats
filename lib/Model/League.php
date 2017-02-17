@@ -11,6 +11,10 @@ class League extends Base {
     public function __construct() {
     }
 
+    public function getID() {
+        return $this->league_id;
+    }
+
     public function getName() {
         return $this->name;
     }
